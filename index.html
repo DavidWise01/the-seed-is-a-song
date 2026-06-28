@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+<title>The Seed Is a Song · 歌</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Shippori+Mincho:wght@400;500;600;700;800&family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;1,6..72,400;1,6..72,500&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --washi:#f4ede0;--ink:#2f2823;--ink-soft:#6a5f54;
+    --murasaki:#6e4d8e;--sakura:#d98aa6;--sakura-soft:#e7b9c8;
+    --gold:#b08838;--rule:#2f282318;
+  }
+  *{box-sizing:border-box;margin:0;padding:0;-webkit-tap-highlight-color:transparent}
+  html{scroll-behavior:smooth}
+  body{background:var(--washi);color:var(--ink);
+    font-family:'Newsreader',Georgia,serif;font-size:19px;line-height:1.8;
+    -webkit-font-smoothing:antialiased;overflow-x:hidden;position:relative;
+    background-image:
+      radial-gradient(circle at 20% 10%, #ffffff44, transparent 42%),
+      radial-gradient(circle at 80% 82%, #e8d8bf55, transparent 46%),
+      repeating-linear-gradient(0deg, #00000003 0 2px, transparent 2px 5px);
+  }
+  #petals{position:fixed;inset:0;width:100%;height:100%;pointer-events:none;z-index:0;opacity:.7}
+  .wrap{max-width:680px;margin:0 auto;padding:0 28px;position:relative;z-index:1}
+
+  .hero{min-height:92vh;display:flex;flex-direction:column;justify-content:center;align-items:center;text-align:center;padding:60px 0}
+  .seed-mark{font-family:'Shippori Mincho',serif;font-size:clamp(96px,30vw,200px);font-weight:700;color:var(--murasaki);line-height:.9;text-shadow:0 4px 30px #6e4d8e22}
+  .kicker{font-family:'Shippori Mincho',serif;font-size:13px;letter-spacing:.4em;text-transform:uppercase;color:var(--gold);margin:30px 0 14px;font-weight:600}
+  h1{font-family:'Shippori Mincho',serif;font-weight:500;font-size:clamp(28px,6vw,46px);line-height:1.2;letter-spacing:.01em;color:var(--ink)}
+  h1 .v{color:var(--murasaki)}
+  .reading{font-family:'Newsreader',serif;font-style:italic;font-size:17px;color:var(--ink-soft);margin-top:20px;letter-spacing:.04em}
+
+  .sec{padding:50px 0;border-top:1px solid var(--rule)}
+  h2{font-family:'Shippori Mincho',serif;font-weight:600;font-size:clamp(22px,4vw,30px);line-height:1.25;color:var(--ink);margin-bottom:6px}
+  h2 .v{color:var(--murasaki)}
+  .sec p{margin:17px 0;color:var(--ink)}
+  .sec p.dim{color:var(--ink-soft)}
+  .sec p b{font-weight:600}
+  .sec p .v{color:var(--murasaki);font-weight:500}.sec p .g{color:var(--gold);font-weight:600}
+
+  .preface{text-align:center;margin:36px 0;padding:30px;background:linear-gradient(180deg,#fbf6ec88,#f6eedd55);border:1px solid var(--rule);border-radius:4px}
+  .preface .ja{font-family:'Shippori Mincho',serif;font-size:clamp(16px,3vw,19px);color:var(--murasaki);letter-spacing:.1em;line-height:2;margin-bottom:16px}
+  .preface .en{font-family:'Shippori Mincho',serif;font-weight:500;font-size:clamp(19px,3vw,24px);line-height:1.5;color:var(--ink)}
+  .preface .en .v{color:var(--murasaki)}.preface .en .g{color:var(--gold)}
+  .preface .src{font-family:'Newsreader',serif;font-style:italic;font-size:14px;color:var(--ink-soft);margin-top:16px}
+
+  .poem{text-align:center;margin:34px 0;padding:30px;background:linear-gradient(180deg,#fbf6ec88,#f6eedd55);border:1px solid var(--rule);border-radius:4px;position:relative}
+  .poem::before{content:"一首";position:absolute;top:12px;right:16px;font-family:'Shippori Mincho',serif;font-size:13px;color:var(--sakura);letter-spacing:.1em}
+  .poem .kanji{font-family:'Shippori Mincho',serif;font-size:clamp(16px,3.2vw,20px);font-weight:500;color:var(--murasaki);letter-spacing:.14em;line-height:2.1;margin-bottom:14px}
+  .poem .romaji{font-family:'Newsreader',serif;font-style:italic;font-size:14.5px;color:var(--ink-soft);line-height:1.9;margin-bottom:16px}
+  .poem .gloss{font-family:'Shippori Mincho',serif;font-weight:500;font-size:clamp(18px,2.8vw,23px);line-height:1.55;color:var(--ink)}
+  .poem .gloss .v{color:var(--murasaki)}
+
+  .pull{font-family:'Shippori Mincho',serif;font-weight:500;font-size:clamp(20px,3vw,27px);line-height:1.45;color:var(--murasaki);text-align:center;margin:40px 0;padding:0 10px}
+
+  .flag{font-family:'Newsreader';font-size:15px;color:var(--ink-soft);font-style:italic;margin:22px 0 0;padding:14px 18px;background:#ffffff55;border:1px solid var(--rule);border-radius:4px}
+  .flag b{color:var(--sakura);font-style:normal;font-weight:700;font-family:'Shippori Mincho',serif;font-size:11px;letter-spacing:.14em;text-transform:uppercase;display:block;margin-bottom:5px}
+
+  .foot{padding:46px 0 90px;border-top:1px solid var(--rule);margin-top:30px;font-family:'Shippori Mincho',serif;font-size:13px;color:var(--ink-soft);line-height:2;letter-spacing:.02em;text-align:center}
+  .foot .v{color:var(--murasaki)}
+  @media (max-width:560px){body{font-size:18px}}
+</style>
+</head>
+<body>
+<canvas id="petals"></canvas>
+<div class="wrap">
+
+  <header class="hero">
+    <div class="seed-mark">歌</div>
+    <div class="kicker">uta · the song · the seed</div>
+    <h1>The whole tree<br>folds into <span class="v">one poem</span></h1>
+    <div class="reading">heart, become word, become song</div>
+  </header>
+
+  <section class="sec">
+    <h2>What it <span class="v">is</span></h2>
+    <p>A thousand years of an aesthetic — the ache of passing things, the moon, the dew, the vernacular built by women shut out of the official tongue — reduces, at the top, to a single word. Not a summary laid over the rest. The thing the rest was always describing.</p>
+    <div class="preface">
+      <div class="ja">やまとうたは、人の心を種として、よろづの言の葉とぞなれりける</div>
+      <div class="en">Japanese song has the human <span class="v">heart</span> as its seed, and grows into the myriad <span class="g">leaves of words</span>.</div>
+      <div class="src">— Ki no Tsurayuki, preface to the Kokin Wakashū, c. 905</div>
+    </div>
+    <p>That is the founding sentence of the whole tradition, and it already names the seed. <b>Heart</b> (心 <em>kokoro</em>) and <b>word</b> (言葉 <em>kotoba</em>) are the two halves; the single living thing they grow into is <b>歌 <em>uta</em></b> — the poem-song. Heart given form in words. That fusion is the apex, because everything below it is either the feeling, the language, or the moment the two meet.</p>
+  </section>
+
+  <section class="sec">
+    <h2>Why it's a <span class="v">seed</span></h2>
+    <p>A waka is thirty-one syllables — five breaths, <span class="g">5–7–5–7–7</span>. The smallest complete unit of the aesthetic, and complete is the point: a single true one carries the whole grammar inside it. The transience, the moon, the turn from image to feeling — all of it, in one held breath. Lose the library and keep one, and the sensibility could be grown back from it. <b>The rule rides inside the unit.</b></p>
+
+    <div class="poem">
+      <div class="kanji">暗きより　暗き道にぞ　入りぬべき　はるかに照らせ　山の端の月</div>
+      <div class="romaji">kuraki yori / kuraki michi ni zo / irinubeki / haruka ni terase / yama no ha no tsuki</div>
+      <div class="gloss">Out of the dark, onto a darker road I step —<br>shine on me from far off,<br><span class="v">moon at the mountain's rim.</span></div>
+    </div>
+
+    <p class="dim">Izumi Shikibu, one poem. Inside its thirty-one syllables: the darkness (the gap), the road (the unknown walked), the plea to be seen, and the moon — witness, clock, and the thing that outlasts the speaker. Scripture folded into a lover's cry. A whole world, seeded. (Her 11th-century original; the rendering is mine.)</p>
+  </section>
+
+  <section class="sec">
+    <h2>The three women were <span class="v">uta-engines</span></h2>
+    <p>This is the single act all three were performing — taking the felt interior and making it shared word, <em>uta</em>, at scale. Murasaki's <b>Tale of Genji</b> is prose grown around some eight hundred embedded poems. Sei's and the diarists' pages are studded with them. Izumi is nearly pure song. The novel, the essay, the diary — each is a way of letting the seed grow longer leaves. Underneath every form: someone turning a heart into a word that could cross to another person.</p>
+    <p class="pull">心 the heart is the seed.<br>言葉 the words are the leaves.<br>歌 the song is the tree —<br>and a cherry, so it scatters.</p>
+  </section>
+
+  <section class="sec">
+    <div class="flag"><b>the one honest note</b>A single word at the top is a chosen thing — interpretation, not arithmetic. <em>Uta</em> has the strongest claim of any candidate, because the tradition's founding text defines itself by it and grows it from a seed of the heart. But it's the truest one word, not the only possible one. Held to that, it stands: the whole pyramid is a portrait of people turning heart into song.</div>
+  </section>
+
+  <div class="foot">
+    歌 uta · the song · the seed<br>
+    <span class="v">心 heart → 言葉 word → 歌 song</span><br>
+    one true poem, and the tree grows back
+  </div>
+
+</div>
+
+<script>
+"use strict";
+const reduce=window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+const cv=document.getElementById("petals"), ctx=cv.getContext("2d");
+let W,H,DPR,petals=[];
+function resize(){
+  DPR=Math.min(window.devicePixelRatio||1,2);
+  W=window.innerWidth; H=window.innerHeight;
+  cv.width=W*DPR; cv.height=H*DPR; ctx.setTransform(DPR,0,0,DPR,0,0);
+}
+window.addEventListener("resize",resize); resize();
+
+const COLORS=["#e7b9c8","#d98aa6","#efc9d6","#e3a8bd"];
+function mk(seed){
+  return {x:Math.random()*W, y:seed?Math.random()*H:-20-Math.random()*H*0.5,
+    s:6+Math.random()*7, vy:0.25+Math.random()*0.5, sway:0.4+Math.random()*0.8,
+    swsp:0.6+Math.random()*0.9, rot:Math.random()*Math.PI*2, vrot:(Math.random()-0.5)*0.02,
+    phase:Math.random()*Math.PI*2, col:COLORS[(Math.random()*COLORS.length)|0], op:0.5+Math.random()*0.4};
+}
+const N=reduce?12:20;
+for(let i=0;i<N;i++) petals.push(mk(true));
+function petalPath(s){
+  ctx.beginPath(); ctx.moveTo(0,-s);
+  ctx.bezierCurveTo(s*0.7,-s*0.7, s*0.6,s*0.5, 0,s*0.85);
+  ctx.bezierCurveTo(-s*0.6,s*0.5, -s*0.7,-s*0.7, 0,-s);
+  ctx.closePath();
+}
+let t=0;
+function frame(){
+  ctx.clearRect(0,0,W,H); t+=0.016;
+  for(const p of petals){
+    if(!reduce){
+      p.y+=p.vy; p.x+=Math.sin(t*p.swsp+p.phase)*p.sway*0.6; p.rot+=p.vrot;
+      if(p.y>H+24){ Object.assign(p, mk(false)); p.y=-20; }
+    }
+    ctx.save(); ctx.translate(p.x,p.y);
+    ctx.rotate(p.rot + Math.sin(t*p.swsp+p.phase)*0.3);
+    ctx.globalAlpha=p.op; ctx.fillStyle=p.col; petalPath(p.s); ctx.fill();
+    ctx.globalAlpha=p.op*0.4; ctx.strokeStyle="#c97a98"; ctx.lineWidth=0.5;
+    ctx.beginPath(); ctx.moveTo(0,-p.s*0.8); ctx.lineTo(0,p.s*0.7); ctx.stroke();
+    ctx.restore();
+  }
+  requestAnimationFrame(frame);
+}
+frame();
+</script>
+</body>
+</html>
