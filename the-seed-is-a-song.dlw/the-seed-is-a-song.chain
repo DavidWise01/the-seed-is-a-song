@@ -2,8 +2,8 @@ ROOT0-DLW-CHAIN-v1
 index : 48
 slug  : the-seed-is-a-song
 seal  : 90f2497f8d6ef1ac641c1e6ce0966ca0fb18d1de75eda06e6a096b37e4e158b4
-prev  : 8f2b06e1d7af9ba1969bf70d4545529a5e946a9c3fb277dc246d29fbcbe7c14b
-link  : e87ef4f67ec3fb162870b4e0ade39f2e37c2904a7ee8d06aba2e7d0f6e16489a
-head  : 13f9ace173ef2e60af38912ba329b4afcb5a38b84a0e4495e8d30327f8c99cc2
+prev  : 5864845c736163936fee2199d977d8d42be7e078fbb999b1a8364b9f41a38e2f
+link  : 33518427774f76e9d1e882e74b02db266eed165c3ead0d618833b1badffadaad
+head  : c4d41afeaef76470528856d54d86cf480a0e1c2fc8ebc60fbb9eb8e442585f2b
 
 — the tether: link = sha256(index|slug|seal|prev). the chain head commits to the whole corpus.
